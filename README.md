@@ -7,6 +7,6 @@
 在gradle.properties配置是否单独编译的开关
 单独编译开关设置后在需要单独编译的模块gradle中添加单独编译判断
 在app_module的gradle中添加不同开关状态下是否需要引用模块的判断
-在不同开关状态下设置不同AndroidManifest.xml文件的引用
+在不同开关状态下设置不同AndroidManifest.xml文件的引用  
 
 
