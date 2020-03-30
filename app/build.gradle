@@ -22,8 +22,6 @@ android {
 dependencies {
     def deps = rootProject.ext.deps
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation deps.appcompat
-    implementation deps.constraint
     testImplementation 'junit:junit:4.13'
     androidTestImplementation deps.runner
     androidTestImplementation deps.espresso
