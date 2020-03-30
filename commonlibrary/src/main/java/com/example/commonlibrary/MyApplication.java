@@ -1,4 +1,4 @@
-package com.lon.myproject;
+package com.example.commonlibrary;
 
 import android.app.Application;
 

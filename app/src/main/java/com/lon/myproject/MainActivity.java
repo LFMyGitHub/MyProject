@@ -24,5 +24,37 @@ public class MainActivity extends AppCompatActivity {
                 ARouter.getInstance().build("/mainlibrary/mainactivity").navigation();
             }
         });
+
+        Button btn1 = findViewById(R.id.test_arouter1);
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ARouter.getInstance().build("/chatlibrary/mainactivity").navigation();
+            }
+        });
+
+        Button btn2 = findViewById(R.id.test_arouter2);
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ARouter.getInstance().build("/minelibrary/mainactivity").navigation();
+            }
+        });
+
+        Button btn3 = findViewById(R.id.test_arouter3);
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ARouter.getInstance().build("/newslibrary/mainactivity").navigation();
+            }
+        });
+
+        Button btn4 = findViewById(R.id.test_arouter4);
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ARouter.getInstance().build("/shoplibrary/mainactivity").navigation();
+            }
+        });
     }
 }
