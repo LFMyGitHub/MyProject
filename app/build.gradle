@@ -30,9 +30,5 @@ dependencies {
     implementation project(':commonlibrary')
     if(!isNeedMainModule.toBoolean()){
         implementation project(':mainlibrary')
-        implementation project(':minelibrary')
-        implementation project(':newslibrary')
-        implementation project(':shoplibrary')
-        implementation project(':chatlibrary')
     }
 }

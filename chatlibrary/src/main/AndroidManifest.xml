@@ -3,7 +3,7 @@
     package="com.example.chatlibrary">
 
     <application>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".ChatActivity"></activity>
     </application>
 
 </manifest>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_f2f3f4"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/activity_contentFrame"
+        android:layout_width="match_parent"
+        android:background="@color/color_f2f3f4"
+        android:layout_height="@dimen/size_0dp"
+        android:layout_weight="1" />
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/color_ccc" />
+
+    <include layout="@layout/bottom__bar_view"/>
+</LinearLayout>

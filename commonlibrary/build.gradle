@@ -33,11 +33,13 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation deps.appcompat
+    implementation rootProject.ext.deps.appcompat
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation deps.runner
-    androidTestImplementation deps.espresso
+    androidTestImplementation rootProject.ext.deps.runner
+    androidTestImplementation rootProject.ext.deps.espresso
 
-    api deps.arouter_api
+    api rootProject.ext.deps.arouter_api
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
+
+    api rootProject.ext.deps.rxlifecycle2
 }

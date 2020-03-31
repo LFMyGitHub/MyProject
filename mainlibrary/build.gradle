@@ -59,5 +59,9 @@ dependencies {
 
     implementation project(':baselibrary')
     implementation project(':commonlibrary')
+    implementation project(':minelibrary')
+    implementation project(':newslibrary')
+    implementation project(':shoplibrary')
+    implementation project(':chatlibrary')
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
 }

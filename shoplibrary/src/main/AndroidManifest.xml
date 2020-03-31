@@ -3,7 +3,7 @@
     package="com.example.shoplibrary">
 
     <application>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".ShopActivity"></activity>
     </application>
 
 </manifest>

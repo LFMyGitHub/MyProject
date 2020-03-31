@@ -3,7 +3,7 @@
     package="com.example.minelibrary">
 
     <application>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MineActivity"></activity>
     </application>
 
 </manifest>
