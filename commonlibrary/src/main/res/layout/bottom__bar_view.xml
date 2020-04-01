@@ -8,7 +8,7 @@
     android:background="@color/color_f9f9f9">
 
     <RadioGroup
-        android:id="@+id/rg_bottom"
+        android:id="@+id/commlib_rg_bottom"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/color_f9f9f9"
@@ -16,32 +16,32 @@
         android:orientation="horizontal">
 
         <RadioButton
-            android:id="@+id/home_tab"
+            android:id="@+id/commlib_home_tab"
             style="@style/main_tab_style"
             android:drawableTop="@drawable/home_tab_selector"
             android:text="首页" />
 
         <RadioButton
-            android:id="@+id/community_tab"
+            android:id="@+id/commlib_news_tab"
             style="@style/main_tab_style"
             android:drawableTop="@drawable/news_tab_selector"
             android:text="资讯" />
 
         <RadioButton
-            android:id="@+id/shop_tab"
+            android:id="@+id/commlib_shop_tab"
             style="@style/main_tab_style"
             android:drawableTop="@drawable/shop_tab_selector"
             android:text="商城" />
 
         <RadioButton
-            android:id="@+id/message_tab"
+            android:id="@+id/commlib_message_tab"
             style="@style/main_tab_style"
             android:drawableTop="@drawable/message_tab_selector"
             android:text="消息" />
 
 
         <RadioButton
-            android:id="@+id/mine_tab"
+            android:id="@+id/commlib_mine_tab"
             style="@style/main_tab_style"
             android:drawableTop="@drawable/mine_tab_selector"
             android:text="我的" />

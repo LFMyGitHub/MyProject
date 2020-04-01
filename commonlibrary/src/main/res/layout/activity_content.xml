@@ -5,6 +5,8 @@
     android:background="@color/color_f2f3f4"
     android:orientation="vertical">
 
+    <include layout="@layout/toolbar_view" android:visibility="gone" android:id="@+id/commlib_toolbar_view"/>
+
     <FrameLayout
         android:id="@+id/activity_contentFrame"
         android:layout_width="match_parent"

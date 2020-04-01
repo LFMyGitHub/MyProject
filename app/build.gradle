@@ -17,6 +17,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -31,4 +36,6 @@ dependencies {
     if(!isNeedMainModule.toBoolean()){
         implementation project(':mainlibrary')
     }
+
+    annotationProcessor rootProject.ext.deps.butterknife_compiler
 }

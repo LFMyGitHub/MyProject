@@ -44,7 +44,6 @@ android {
             }
         }
     }
-
 }
 
 dependencies {
@@ -64,4 +63,5 @@ dependencies {
     implementation project(':shoplibrary')
     implementation project(':chatlibrary')
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
+    annotationProcessor rootProject.ext.deps.butterknife_compiler
 }

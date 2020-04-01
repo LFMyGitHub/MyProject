@@ -10,7 +10,7 @@ public class MainFragment extends BaseFragment implements MainContract.View {
 
     @Override
     protected int getLayoutId() {
-        return com.example.minelibrary.R.layout.minelib_activity_main;
+        return R.layout.mainlib_activity_main;
     }
 
     @Override

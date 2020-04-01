@@ -30,6 +30,8 @@ dependencies {
 
     api deps.appcompat
     api deps.constraint
+    api deps.glide
+    annotationProcessor deps.glide_compiler
     testImplementation 'junit:junit:4.12'
     androidTestImplementation deps.runner
     androidTestImplementation deps.espresso

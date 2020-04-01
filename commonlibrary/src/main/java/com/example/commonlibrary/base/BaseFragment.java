@@ -9,9 +9,12 @@ import android.view.ViewGroup;
 import com.trello.rxlifecycle3.components.support.RxFragment;
 
 import androidx.annotation.Nullable;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 public abstract class BaseFragment extends RxFragment {
     protected BaseNativeActivity mActivity;
+    private Unbinder mUnbinder;
 
     protected abstract int getLayoutId();
 
@@ -29,6 +32,7 @@ public abstract class BaseFragment extends RxFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(getLayoutId(), container, false);
+        mUnbinder = ButterKnife.bind(this, view);
         initView(view, savedInstanceState);
         return view;
     }
@@ -46,5 +50,9 @@ public abstract class BaseFragment extends RxFragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        if (mUnbinder != null) {
+            //解除绑定
+            mUnbinder.unbind();
+        }
     }
 }

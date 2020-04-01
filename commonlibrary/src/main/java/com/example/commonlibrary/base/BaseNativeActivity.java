@@ -11,6 +11,8 @@ import com.example.commonlibrary.utils.ActivityUtils;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 /**
  * 原生Activity基类
@@ -19,6 +21,7 @@ public abstract class BaseNativeActivity extends BaseActivity {
 
     public SharedPreferences mShared;
     public SharedPreferences.Editor mEditor;
+    private Unbinder mUnbinder;
 
     /**
      * 布局文件Id
@@ -46,6 +49,7 @@ public abstract class BaseNativeActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         initStatusBar();
         setContentView(getContentViewId());
+        mUnbinder = ButterKnife.bind(this);
         mShared = getSharedPreferences(AppConstant.UserInfoModule.USER_INFO, 0);
         mEditor = mShared.edit();
         // 处理传过来的intent
@@ -119,5 +123,13 @@ public abstract class BaseNativeActivity extends BaseActivity {
      */
     protected boolean setTranslucentStatusBar() {
         return false;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(mUnbinder != null){
+            mUnbinder.unbind();
+        }
     }
 }

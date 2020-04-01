@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.jakewharton.butterknife'
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -27,7 +28,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
 }
 
 dependencies {
@@ -42,4 +42,7 @@ dependencies {
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
 
     api rootProject.ext.deps.rxlifecycle2
+
+    api rootProject.ext.deps.butterknife
+    annotationProcessor rootProject.ext.deps.butterknife_compiler
 }
