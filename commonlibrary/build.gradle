@@ -49,4 +49,6 @@ dependencies {
     api deps.retrofit2
     api deps.retrofit2_converter
     api deps.retrofit2_rxjava2
+
+    api deps.SmartRefreshLayout
 }

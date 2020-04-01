@@ -35,5 +35,11 @@ ext {
             retrofit2_converter : 'com.squareup.retrofit2:converter-gson:2.5.0',
             //retrofit2与RxJava结合使用
             retrofit2_rxjava2   : 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0',
+
+            //下拉刷新、上拉加载
+            SmartRefreshLayout  : 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.2',
+            //使用特殊Header
+            SmartRefreshHeader  : 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.2'
+
     ]
 }

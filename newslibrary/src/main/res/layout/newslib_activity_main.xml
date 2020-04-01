@@ -6,11 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".NewsActivity">
 
-    <TextView
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/news_lib_main_refreshLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="news"
-        />
+        android:layout_height="match_parent">
+
+        <view class="androidx.appcompat.app.AlertController$RecycleListView"
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/color_ffffff"
+            android:overScrollMode="never" />
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
