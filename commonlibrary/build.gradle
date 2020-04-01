@@ -45,4 +45,8 @@ dependencies {
 
     api rootProject.ext.deps.butterknife
     annotationProcessor rootProject.ext.deps.butterknife_compiler
+
+    api deps.retrofit2
+    api deps.retrofit2_converter
+    api deps.retrofit2_rxjava2
 }

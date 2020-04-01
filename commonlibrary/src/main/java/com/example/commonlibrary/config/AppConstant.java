@@ -8,7 +8,8 @@ public class AppConstant {
     public static final String SERVER = ServerKey.DEV;
 
     //主域名
-    public static String NEW_API = "";
+    public static String BASE_API = "https://api.avatardata.cn";
+    public final static String APP_JOKE_KEY = "bab3cd81f16a406683bf8354417b3b26";
 
     public static void getServer() {
         if (SERVER.equals(ServerKey.DEV)) {
@@ -31,6 +32,11 @@ public class AppConstant {
     public static class ApiModule {
         //获取快捷登录列表
         public static final String QUICK_LIST_API = "app/home/quickLogin";
+    }
+
+    public static class HttpModule {
+        //设置默认超时时间
+        public static final int DEFAULT_TIME = 10;
     }
 
     public static class NavigationModule {
@@ -68,11 +74,9 @@ public class AppConstant {
     }
 
     private static void testApi() {
-        NEW_API = "https://uc-csgatest.xcydhn.com";
     }
 
     private static void devApi() {
-        NEW_API = "http://uc-csga.xcydhn.com";
     }
 
     //缓存

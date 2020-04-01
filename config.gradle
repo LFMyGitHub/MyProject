@@ -28,5 +28,12 @@ ext {
             //butterknife
             butterknife         : "com.jakewharton:butterknife:10.2.1",
             butterknife_compiler: "com.jakewharton:butterknife-compiler:10.2.1",
+
+            //retrofit2依赖
+            retrofit2           : 'com.squareup.retrofit2:retrofit:2.5.0',
+            //retrofit2添加Json解析返回数据
+            retrofit2_converter : 'com.squareup.retrofit2:converter-gson:2.5.0',
+            //retrofit2与RxJava结合使用
+            retrofit2_rxjava2   : 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0',
     ]
 }
