@@ -8,7 +8,7 @@ public class AppConstant {
     public static final String SERVER = ServerKey.DEV;
 
     //主域名
-    public static String BASE_API = "https://api.avatardata.cn";
+    public static String BASE_API = "http://api.avatardata.cn";
     public final static String APP_JOKE_KEY = "bab3cd81f16a406683bf8354417b3b26";
 
     public static void getServer() {

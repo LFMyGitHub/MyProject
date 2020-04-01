@@ -51,4 +51,6 @@ dependencies {
     api deps.retrofit2_rxjava2
 
     api deps.SmartRefreshLayout
+    api deps.BaseRecyclerViewAdapterHelper
+    api 'com.yanzhenjie:recyclerview-swipe:1.1.4'
 }
