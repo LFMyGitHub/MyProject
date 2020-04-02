@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.commonlibrary.base.BaseFragment;
 import com.example.commonlibrary.utils.GsonUtils;
+import com.example.commonlibrary.widget.view.CustomRefreshFooter;
 import com.example.commonlibrary.widget.view.CustomRefreshHeader;
 import com.example.newslibrary.adapter.NewsAdapter;
 import com.example.newslibrary.entity.NewsEntity;
@@ -36,6 +37,7 @@ public class NewsFragment extends BaseFragment implements NewsContract.View {
     protected void initView(View view, Bundle savedInstanceState) {
         mPresenter = new NewsPresenter(this, getActivity());
         mRefreshLayout.setRefreshHeader(new CustomRefreshHeader(getActivity(),null));
+        mRefreshLayout.setRefreshFooter(new CustomRefreshFooter(getActivity(),null));
         mRefreshLayout.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
             @Override
             public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
