@@ -1,10 +1,13 @@
 package com.example.commonlibrary.http;
 
-import android.app.ProgressDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.widget.Toast;
+
+import com.example.commonlibrary.R;
+import com.example.commonlibrary.widget.dialog.CustomProgressDialog;
 
 import io.reactivex.disposables.Disposable;
 
@@ -13,7 +16,7 @@ import io.reactivex.disposables.Disposable;
  */
 public abstract class MyObserver<T> extends BaseObserver<T> {
     private boolean mShowDialog;
-    private ProgressDialog mDialog;
+    private Dialog mDialog;
     private Context mContext;
     private Disposable d;
 
@@ -22,26 +25,32 @@ public abstract class MyObserver<T> extends BaseObserver<T> {
         mShowDialog = showDialog;
     }
 
+    public MyObserver(Context context, Boolean showDialog, Dialog dialog) {
+        mContext = context;
+        mShowDialog = showDialog;
+        mDialog = dialog;
+    }
+
     public MyObserver(Context context) {
-        this(context,true);
+        this(context, true);
     }
 
     @Override
     public void onSubscribe(Disposable d) {
         this.d = d;
         if (!isConnected(mContext)) {
-            Toast.makeText(mContext,"未连接网络",Toast.LENGTH_SHORT).show();
+            Toast.makeText(mContext, "未连接网络", Toast.LENGTH_SHORT).show();
             if (d.isDisposed()) {
                 d.dispose();
             }
         } else {
             if (mDialog == null && mShowDialog == true) {
-                mDialog = new ProgressDialog(mContext);
-                mDialog.setMessage("正在加载中");
+                mDialog = new CustomProgressDialog(mContext, R.style.loading_dialog, "正在加载中", R.drawable.commlib_loading);
                 mDialog.show();
             }
         }
     }
+
     @Override
     public void onError(Throwable e) {
         if (d.isDisposed()) {
@@ -66,17 +75,17 @@ public abstract class MyObserver<T> extends BaseObserver<T> {
             mDialog.dismiss();
         mDialog = null;
     }
+
     /**
      * 是否有网络连接，不管是wifi还是数据流量
+     *
      * @param context
      * @return
      */
-    public static boolean isConnected(Context context)
-    {
+    public static boolean isConnected(Context context) {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo info = cm.getActiveNetworkInfo();
-        if (info == null)
-        {
+        if (info == null) {
             return false;
         }
         boolean available = info.isAvailable();
@@ -86,8 +95,8 @@ public abstract class MyObserver<T> extends BaseObserver<T> {
     /**
      * 取消订阅
      */
-    public void cancleRequest(){
-        if (d!=null&&d.isDisposed()) {
+    public void cancleRequest() {
+        if (d != null && d.isDisposed()) {
             d.dispose();
             hidDialog();
         }
