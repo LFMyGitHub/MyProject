@@ -34,8 +34,8 @@ public class CustomRefreshHeader extends LinearLayout implements RefreshHeader {
 
     public CustomRefreshHeader(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        View view = View.inflate(context, R.layout.widget_custom_refresh_header, this);
-        mImageView = (ImageView) view.findViewById(R.id.iv_refresh_header);
+        View view = View.inflate(context, R.layout.commlib_custom_refresh_header, this);
+        mImageView = view.findViewById(R.id.commlib_iv_refresh_header);
     }
 
     @NonNull
@@ -62,7 +62,28 @@ public class CustomRefreshHeader extends LinearLayout implements RefreshHeader {
 
     @Override
     public void onMoving(boolean isDragging, float percent, int offset, int height, int maxDragHeight) {
+        // 下拉的百分比小于100%时，不断调用 setScale 方法改变图片大小
+        if (percent < 1) {
+            mImageView.setScaleX(percent);
+            mImageView.setScaleY(percent);
 
+            //是否执行过翻跟头动画的标记
+            if (hasSetPullDownAnim) {
+                hasSetPullDownAnim = false;
+            }
+        }
+
+        //当下拉的高度达到Header高度100%时，开始加载正在下拉的初始动画，即翻跟头
+        if (percent >= 1.0) {
+            //因为这个方法是不停调用的，防止重复
+            if (!hasSetPullDownAnim) {
+                mImageView.setImageResource(R.drawable.commlib_anim_pull_end);
+                pullDownAnim = (AnimationDrawable) mImageView.getDrawable();
+                pullDownAnim.start();
+
+                hasSetPullDownAnim = true;
+            }
+        }
     }
 
     @Override
@@ -75,8 +96,23 @@ public class CustomRefreshHeader extends LinearLayout implements RefreshHeader {
 
     }
 
+    /**
+     * 动画结束后调用
+     * @param refreshLayout
+     * @param success
+     * @return
+     */
     @Override
     public int onFinish(@NonNull RefreshLayout refreshLayout, boolean success) {
+        // 结束动画
+        if (pullDownAnim != null && pullDownAnim.isRunning()) {
+            pullDownAnim.stop();
+        }
+        if (refreshingAnim != null && refreshingAnim.isRunning()) {
+            refreshingAnim.stop();
+        }
+        //重置状态
+        hasSetPullDownAnim = false;
         return 0;
     }
 
@@ -90,6 +126,12 @@ public class CustomRefreshHeader extends LinearLayout implements RefreshHeader {
         return false;
     }
 
+    /**
+     * 状态改变时调用。在这里切换第三阶段的动画卖萌小人
+     * @param refreshLayout
+     * @param oldState
+     * @param newState
+     */
     @Override
     public void onStateChanged(@NonNull RefreshLayout refreshLayout, @NonNull RefreshState oldState, @NonNull RefreshState newState) {
         switch (newState){
@@ -99,7 +141,7 @@ public class CustomRefreshHeader extends LinearLayout implements RefreshHeader {
                 break;
             case Refreshing: //正在刷新。只调用一次
                 //状态切换为正在刷新状态时，设置图片资源为小人卖萌的动画并开始执行
-                mImageView.setImageResource(R.drawable.anim_pull_refreshing);
+                mImageView.setImageResource(R.drawable.commlib_anim_pull_refreshing);
                 refreshingAnim = (AnimationDrawable) mImageView.getDrawable();
                 refreshingAnim.start();
                 break;

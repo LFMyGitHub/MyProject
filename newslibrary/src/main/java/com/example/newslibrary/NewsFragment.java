@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.commonlibrary.base.BaseFragment;
 import com.example.commonlibrary.utils.GsonUtils;
+import com.example.commonlibrary.widget.view.CustomRefreshHeader;
 import com.example.newslibrary.adapter.NewsAdapter;
 import com.example.newslibrary.entity.NewsEntity;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -34,6 +35,7 @@ public class NewsFragment extends BaseFragment implements NewsContract.View {
     @Override
     protected void initView(View view, Bundle savedInstanceState) {
         mPresenter = new NewsPresenter(this, getActivity());
+        mRefreshLayout.setRefreshHeader(new CustomRefreshHeader(getActivity(),null));
         mRefreshLayout.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
             @Override
             public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
@@ -86,7 +88,11 @@ public class NewsFragment extends BaseFragment implements NewsContract.View {
             }else {
                 mNewsAdapter.addData(mResultBeans);
             }
-            mRefreshLayout.finishRefresh();
+            if(page == 1){
+                mRefreshLayout.finishRefresh();
+            }else {
+                mRefreshLayout.finishLoadMore();
+            }
         }
     }
 }
