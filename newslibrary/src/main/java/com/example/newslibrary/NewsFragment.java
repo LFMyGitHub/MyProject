@@ -39,14 +39,12 @@ public class NewsFragment extends BaseFragment implements NewsContract.View {
             public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
                 page += 1;
                 getWorldNews(page,20, false);
-                mRefreshLayout.finishLoadMore(2000);//传入false表示加载失败
             }
 
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
                 page = 1;
                 getWorldNews(page,20, false);
-                mRefreshLayout.finishRefresh(2000);//传入false表示刷新失败
             }
         });
 
