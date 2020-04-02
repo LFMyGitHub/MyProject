@@ -24,14 +24,14 @@ public class NewsPresenter implements NewsContract.Presenter {
 
 
     @Override
-    public void getWorldNwes(int page, int rows) {
+    public void getWorldNwes(int page, int rows, boolean isLoading) {
         Map map = new HashMap();
         map.put("page", page);
         map.put("rows", rows);
         RetrofitUtils.newInstance().getRetrofit(NewsLibApiService.class)
                 .getWorldNwes(map)
                 .compose(RxHelper.observableIO2Main(mContext))
-                .subscribe(new MyObserver(mContext) {
+                .subscribe(new MyObserver(mContext, isLoading) {
                     @Override
                     public void onSuccess(String json) {
                         mView.getWorldNwesSuccess(json);

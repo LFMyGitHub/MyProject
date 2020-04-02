@@ -12,7 +12,7 @@ import com.example.newslibrary.adapter.NewsAdapter;
 import com.example.newslibrary.entity.NewsEntity;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
-import com.yanzhenjie.recyclerview.swipe.SwipeMenuRecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
@@ -24,7 +24,7 @@ public class NewsFragment extends BaseFragment implements NewsContract.View {
     @BindView(com.example.newslibrary.R2.id.news_lib_main_refreshLayout)
     RefreshLayout mRefreshLayout;
     @BindView(com.example.newslibrary.R2.id.news_lib_main_recyclerView)
-    SwipeMenuRecyclerView mRecycleListView;
+    RecyclerView mRecycleListView;
 
     @Override
     protected int getLayoutId() {
@@ -38,14 +38,14 @@ public class NewsFragment extends BaseFragment implements NewsContract.View {
             @Override
             public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
                 page += 1;
-                getWorldNews(page,20);
+                getWorldNews(page,20, false);
                 mRefreshLayout.finishLoadMore(2000);//传入false表示加载失败
             }
 
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
                 page = 1;
-                getWorldNews(page,20);
+                getWorldNews(page,20, false);
                 mRefreshLayout.finishRefresh(2000);//传入false表示刷新失败
             }
         });
@@ -56,7 +56,7 @@ public class NewsFragment extends BaseFragment implements NewsContract.View {
         //间隔设置0,以前为20,现在新闻列表要分页加载，不能放在头部中，新闻列表数据必须放在mRefrushRecycleView
         //mRecycleListView.addItemDecoration(new SpaceItemDecoration(0));
 
-        getWorldNews(page,20);
+        getWorldNews(page,20, true);
     }
 
     @Override
@@ -64,9 +64,9 @@ public class NewsFragment extends BaseFragment implements NewsContract.View {
 
     }
 
-    private void getWorldNews(int page, int rows){
+    private void getWorldNews(int page, int rows, boolean isLoading){
         if (mPresenter != null) {
-            mPresenter.getWorldNwes(page, rows);
+            mPresenter.getWorldNwes(page, rows, isLoading);
         }
     }
 
@@ -85,8 +85,10 @@ public class NewsFragment extends BaseFragment implements NewsContract.View {
             if(mNewsAdapter == null){
                 mNewsAdapter = new NewsAdapter(R.layout.newslib_news_item, mResultBeans);
                 mRecycleListView.setAdapter(mNewsAdapter);
+            }else {
+                mNewsAdapter.addData(mResultBeans);
             }
-            mNewsAdapter.setNewData(mResultBeans);
+            mRefreshLayout.finishRefresh();
         }
     }
 }
