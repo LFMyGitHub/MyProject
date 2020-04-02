@@ -6,17 +6,37 @@
     android:layout_height="match_parent"
     tools:context=".NewsActivity">
 
-    <com.scwang.smartrefresh.layout.SmartRefreshLayout
-        android:id="@+id/news_lib_main_refreshLayout"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/news_lib_main_recyclerView"
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/news_lib_main_refreshLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/color_ffffff"
-            android:overScrollMode="never" />
-    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+            android:layout_height="match_parent">
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/news_lib_main_recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/color_ffffff"
+                android:overScrollMode="never" />
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:id="@+id/newslib_floatbutton"
+            app:elevation="@dimen/size_6dp"
+            android:clickable="true"
+            app:borderWidth="@dimen/size_0dp"
+            android:backgroundTint="@color/color_00A3EF"
+            app:rippleColor="@color/color_1B96E0"
+            android:layout_marginBottom="@dimen/size_20dp"
+            android:layout_marginRight="@dimen/size_20dp"
+            android:src="@drawable/commlib_arrow_up"
+            app:pressedTranslationZ="@dimen/size_12dp"
+            android:visibility="gone"
+            android:layout_height="wrap_content" />
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

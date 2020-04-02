@@ -12,6 +12,7 @@ import com.example.commonlibrary.widget.view.CustomRefreshFooter;
 import com.example.commonlibrary.widget.view.CustomRefreshHeader;
 import com.example.newslibrary.adapter.NewsAdapter;
 import com.example.newslibrary.entity.NewsEntity;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,6 +28,8 @@ public class NewsFragment extends BaseFragment implements NewsContract.View {
     RefreshLayout mRefreshLayout;
     @BindView(com.example.newslibrary.R2.id.news_lib_main_recyclerView)
     RecyclerView mRecycleListView;
+    @BindView(com.example.newslibrary.R2.id.newslib_floatbutton)
+    FloatingActionButton floatingActionButton;
 
     @Override
     protected int getLayoutId() {
@@ -57,6 +60,34 @@ public class NewsFragment extends BaseFragment implements NewsContract.View {
         mRecycleListView.setLayoutManager(manager);
         //间隔设置0,以前为20,现在新闻列表要分页加载，不能放在头部中，新闻列表数据必须放在mRefrushRecycleView
         //mRecycleListView.addItemDecoration(new SpaceItemDecoration(0));
+
+        mRecycleListView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                //获得recyclerView的线性布局管理器
+                LinearLayoutManager manager = (LinearLayoutManager) recyclerView.getLayoutManager();
+                //获取到第一个item的显示的下标  不等于0表示第一个item处于不可见状态 说明列表没有滑动到顶部 显示回到顶部按钮
+                int firstVisibleItemPosition = manager.findFirstVisibleItemPosition();
+                // 当不滚动时
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                    // 判断是否滚动超过一屏
+                    if (firstVisibleItemPosition == 0) {
+                        floatingActionButton.hide();
+                    } else {
+                        //显示回到顶部按钮
+                        floatingActionButton.show();
+                        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                mRecycleListView.scrollToPosition(0);
+                                floatingActionButton.hide();
+                            }
+                        });
+                    }
+                }
+            }
+        });
 
         getWorldNews(page,20, true);
     }

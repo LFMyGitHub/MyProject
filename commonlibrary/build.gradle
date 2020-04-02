@@ -53,4 +53,5 @@ dependencies {
     api deps.SmartRefreshLayout
     api deps.BaseRecyclerViewAdapterHelper
     api deps.recyclerview
+    api deps.material
 }

@@ -43,6 +43,9 @@ ext {
 
             //通用适配器
             BaseRecyclerViewAdapterHelper: 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.2',
-            recyclerview                 : 'androidx.recyclerview:recyclerview:1.1.0'
+            recyclerview                 : 'androidx.recyclerview:recyclerview:1.1.0',
+
+            //悬浮按钮
+            material: 'com.google.android.material:material:1.1.0'
     ]
 }
