@@ -27,7 +27,7 @@ import static com.example.commonlibrary.config.AppConstant.NavigationModule.MINE
 import static com.example.commonlibrary.config.AppConstant.NavigationModule.SHOP_TAB;
 
 @Route(path = "/mainlibrary/mainactivity")
-public class MainActivity extends BaseToolbarActivity {
+public class MainActivity extends BaseToolbarActivity{
     private Context mContext;
 
     private Fragment mMineFragment;

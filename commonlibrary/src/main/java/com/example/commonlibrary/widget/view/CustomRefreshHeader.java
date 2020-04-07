@@ -17,6 +17,9 @@ import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+/**
+ * 自定义下拉刷新动画
+ */
 public class CustomRefreshHeader extends LinearLayout implements RefreshHeader {
     private ImageView mImageView;
     private AnimationDrawable pullDownAnim;

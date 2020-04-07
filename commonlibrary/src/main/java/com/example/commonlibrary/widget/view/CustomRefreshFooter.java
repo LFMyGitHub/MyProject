@@ -18,6 +18,9 @@ import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.constant.RefreshState;
 import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
 
+/**
+ * 自定义上拉加载动画
+ */
 public class CustomRefreshFooter extends LinearLayout implements RefreshFooter {
     private ImageView mImageView;
     private AnimationDrawable pullDownAnim;

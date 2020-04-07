@@ -1,0 +1,59 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/size_50dp"
+    android:background="@color/color_1983d1"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/size_10dp"
+        android:layout_toLeftOf="@+id/commlib_iv_contact"
+        android:background="@drawable/commlib_shape_search"
+        android:paddingLeft="@dimen/size_10dp"
+        android:paddingRight="@dimen/size_10dp">
+
+        <ImageView
+            android:id="@+id/commlib_iv_search"
+            android:layout_width="@dimen/size_20dp"
+            android:layout_height="@dimen/size_20dp"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/commlib_ic_search" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/commlib_iv_search"
+            android:background="@null"
+            android:hint="搜索商品"
+            android:paddingLeft="@dimen/size_10dp"
+            android:textColorHint="@color/color_FFFFFF"
+            android:textColor="@color/color_FFFFFF"
+            android:textSize="@dimen/sp_14" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/commlib_iv_plus"
+        android:layout_width="@dimen/size_20dp"
+        android:layout_height="@dimen/size_20dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/size_10dp"
+        android:src="@mipmap/commlib_ic_add" />
+
+    <ImageView
+        android:id="@+id/commlib_iv_contact"
+        android:layout_width="@dimen/size_25dp"
+        android:layout_height="@dimen/size_25dp"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/size_10dp"
+        android:layout_toLeftOf="@+id/commlib_iv_plus"
+        android:src="@mipmap/commlib_ic_contact" />
+
+    <View
+        android:id="@+id/commlib_bg_toolbar_open"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</RelativeLayout>

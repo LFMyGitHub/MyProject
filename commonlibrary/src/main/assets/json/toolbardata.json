@@ -1,0 +1,19 @@
+{
+  "result": [{
+    "icon": "commlib_ic_scan",
+    "title": "扫一扫",
+    "url": ""
+  }, {
+    "icon": "commlib_ic_payment",
+    "title": "付钱",
+    "url": ""
+  }, {
+    "icon": "commlib_ic_transfer",
+    "title": "收钱",
+    "url": ""
+  }, {
+    "icon": "commlib_ic_card",
+    "title": "卡包",
+    "url": ""
+  }]
+}

@@ -54,4 +54,6 @@ dependencies {
     api deps.BaseRecyclerViewAdapterHelper
     api deps.recyclerview
     api deps.material
+    api deps.glide
+    annotationProcessor deps.glide_compiler
 }
