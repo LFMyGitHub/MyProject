@@ -1,28 +1,28 @@
 package com.example.mainlibrary;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.example.commonlibrary.R2;
 import com.example.commonlibrary.base.BaseFragment;
-import com.example.commonlibrary.http.MyObserver;
-import com.example.commonlibrary.http.RetrofitUtils;
-import com.example.commonlibrary.http.RxHelper;
 import com.example.commonlibrary.utils.AppBarLayoutUtils;
 import com.example.commonlibrary.utils.GsonUtils;
+import com.example.commonlibrary.utils.ToastUtils;
 import com.example.mainlibrary.adapter.HomeToolbarCloseAdapter;
 import com.example.mainlibrary.adapter.HomeToolbarOpenAdapter;
-import com.example.mainlibrary.api.MainLibApiService;
 import com.example.mainlibrary.entity.HomeToolbarEntity;
 import com.google.android.material.appbar.AppBarLayout;
 
 import java.util.ArrayList;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
+import butterknife.OnClick;
 
 public class MainFragment extends BaseFragment implements MainContract.View, AppBarLayout.OnOffsetChangedListener {
     private MainContract.Presenter mPresenter;
@@ -90,25 +90,9 @@ public class MainFragment extends BaseFragment implements MainContract.View, App
 
     }
 
-    //@OnClick({com.example.mainlibrary.R2.id.test_mianlib_router})
+    @OnClick({})
     public void onClick(View view) {
         int id = view.getId();
-        if (id == R.id.test_mianlib_router) {
-            RetrofitUtils.newInstance().getRetrofit(MainLibApiService.class)
-                    .getNwestJoke()
-                    .compose(RxHelper.observableIO2Main(getActivity()))
-                    .subscribe(new MyObserver(getActivity()) {
-                        @Override
-                        public void onSuccess(String json) {
-                            Log.i("Test", json);
-                        }
-
-                        @Override
-                        public void onFailure(Throwable e, String errorMsg) {
-
-                        }
-                    });
-        }
     }
 
     @Override
@@ -136,6 +120,18 @@ public class MainFragment extends BaseFragment implements MainContract.View, App
                 mHomeToolbarCloseAdapter.addData(mResultBeans);
                 mHomeToolbarOpenAdapter.addData(mResultBeans);
             }
+            mHomeToolbarCloseAdapter.setOnItemClickListener(new OnItemClickListener() {
+                @Override
+                public void onItemClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
+                    ToastUtils.showShort(getActivity(), mResultBeans.get(position).getTitle());
+                }
+            });
+            mHomeToolbarOpenAdapter.setOnItemClickListener(new OnItemClickListener() {
+                @Override
+                public void onItemClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
+                    ToastUtils.showShort(getActivity(), mResultBeans.get(position).getTitle());
+                }
+            });
         }
     }
 }

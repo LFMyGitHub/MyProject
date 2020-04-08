@@ -30,6 +30,7 @@
                 android:layout_height="@dimen/size_50dp"
                 app:contentInsetLeft="0dp"
                 app:contentInsetStart="0dp"
+                android:background="@color/color_1983d1"
                 app:layout_collapseMode="pin">
 
                 <include

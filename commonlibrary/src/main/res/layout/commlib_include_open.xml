@@ -10,7 +10,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/commlib_toolbar_open_rv"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/size_100dp"
+        android:layout_height="@dimen/size_80dp"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:spanCount="4"
         tools:listitem="@layout/commlib_toolbar_content_item"
