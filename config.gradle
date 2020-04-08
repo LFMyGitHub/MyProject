@@ -46,6 +46,9 @@ ext {
             recyclerview                 : 'androidx.recyclerview:recyclerview:1.1.0',
 
             //悬浮按钮
-            material: 'com.google.android.material:material:1.1.0'
+            material                     : 'com.google.android.material:material:1.1.0',
+
+            //banner
+            banner                       : 'com.youth.banner:banner:2.0.4'
     ]
 }

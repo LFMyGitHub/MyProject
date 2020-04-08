@@ -11,11 +11,14 @@ import com.example.commonlibrary.utils.AppBarLayoutUtils;
 import com.example.commonlibrary.utils.GsonUtils;
 import com.example.commonlibrary.utils.ToastUtils;
 import com.example.mainlibrary.adapter.HomeToolbarCloseAdapter;
+import com.example.mainlibrary.adapter.HomeToolbarGridViewAdapter;
 import com.example.mainlibrary.adapter.HomeToolbarOpenAdapter;
+import com.example.mainlibrary.entity.HomeToolBarGridViewEntity;
 import com.example.mainlibrary.entity.HomeToolbarEntity;
 import com.google.android.material.appbar.AppBarLayout;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -56,10 +59,14 @@ public class MainFragment extends BaseFragment implements MainContract.View, App
     View mBgToolbarClose;
 
     @BindView(R2.id.commlib_toolbar_close_rv)
-    RecyclerView mRecyclerView;
+    RecyclerView mCloseRecyclerView;
     @BindView(R2.id.commlib_toolbar_open_rv)
     RecyclerView mOpenRecyclerView;
     private HomeToolbarEntity mHomeToolbarEntity;
+
+    @BindView(R2.id.main_lib_recyclerView_grid_view)
+    RecyclerView mGridViewRecyclerView;
+    private List<HomeToolBarGridViewEntity> mHomeToolBarGridViewEntities;
 
     @Override
     protected int getLayoutId() {
@@ -72,16 +79,20 @@ public class MainFragment extends BaseFragment implements MainContract.View, App
 
         mAppBar.addOnOffsetChangedListener(this);
 
-        LinearLayoutManager manager = new LinearLayoutManager(getContext());
-        manager.setOrientation(LinearLayoutManager.HORIZONTAL);
-        mRecyclerView.setLayoutManager(manager);
+        LinearLayoutManager closeManager = new LinearLayoutManager(getContext());
+        closeManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        mCloseRecyclerView.setLayoutManager(closeManager);
 
-        GridLayoutManager manager1 = new GridLayoutManager(getContext(), 4);
-        mOpenRecyclerView.setLayoutManager(manager1);
+        GridLayoutManager openManager = new GridLayoutManager(getContext(), 4);
+        mOpenRecyclerView.setLayoutManager(openManager);
+
+        GridLayoutManager gridViewManager = new GridLayoutManager(getContext(), 5);
+        mGridViewRecyclerView.setLayoutManager(gridViewManager);
 
         //模拟请求toolbar数据
         if (mPresenter != null) {
             mPresenter.getToolBarData();
+            mPresenter.getMainGridViewData();
         }
     }
 
@@ -114,7 +125,7 @@ public class MainFragment extends BaseFragment implements MainContract.View, App
             if (mHomeToolbarCloseAdapter == null) {
                 mHomeToolbarCloseAdapter = new HomeToolbarCloseAdapter(getActivity(), R.layout.commlib_toolbar_item, mResultBeans);
                 mHomeToolbarOpenAdapter = new HomeToolbarOpenAdapter(getActivity(), R.layout.commlib_toolbar_content_item, mResultBeans);
-                mRecyclerView.setAdapter(mHomeToolbarCloseAdapter);
+                mCloseRecyclerView.setAdapter(mHomeToolbarCloseAdapter);
                 mOpenRecyclerView.setAdapter(mHomeToolbarOpenAdapter);
             } else {
                 mHomeToolbarCloseAdapter.addData(mResultBeans);
@@ -132,6 +143,29 @@ public class MainFragment extends BaseFragment implements MainContract.View, App
                     ToastUtils.showShort(getActivity(), mResultBeans.get(position).getTitle());
                 }
             });
+        }
+    }
+
+    private ArrayList<HomeToolBarGridViewEntity> mHomeToolBarGridViewEntityArrayList = new ArrayList<HomeToolBarGridViewEntity>();
+    private HomeToolbarGridViewAdapter mHomeToolbarGridViewAdapter;
+    @Override
+    public void getMainGridViewDataSuccess(String json){
+        mHomeToolBarGridViewEntities = GsonUtils.jsonToList(json, HomeToolBarGridViewEntity.class);
+        if (mHomeToolBarGridViewEntities != null && mHomeToolBarGridViewEntities.size() > 0) {
+            mHomeToolBarGridViewEntityArrayList.clear();
+            mHomeToolBarGridViewEntityArrayList.addAll(mHomeToolBarGridViewEntities);
+            if (mHomeToolbarGridViewAdapter == null) {
+                mHomeToolbarGridViewAdapter = new HomeToolbarGridViewAdapter(getActivity(), R.layout.commlib_toolbar_grid_view_item, mHomeToolBarGridViewEntityArrayList);
+                mGridViewRecyclerView.setAdapter(mHomeToolbarGridViewAdapter);
+            } else {
+                mHomeToolbarGridViewAdapter.setData(mHomeToolBarGridViewEntityArrayList);
+            }
+//            mHomeToolbarGridViewAdapter.setOnItemClickListener(new OnItemClickListener() {
+//                @Override
+//                public void onItemClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
+//                    ToastUtils.showShort(getActivity(), mHomeToolBarGridViewEntityArrayList.get(position).getTitle());
+//                }
+//            });
         }
     }
 }

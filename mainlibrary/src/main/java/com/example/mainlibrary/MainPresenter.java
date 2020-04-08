@@ -19,4 +19,11 @@ public class MainPresenter implements MainContract.Presenter {
         String json = SimulateNetAPI.getOriginalFundData("json/toolbardata.json", mContext);
         mView.getToolBarDataSuccess(json);
     }
+
+    @Override
+    public void getMainGridViewData() {
+        //模拟数据请求
+        String json = SimulateNetAPI.getOriginalFundData("json/toolbargridviewdata.json", mContext);
+        mView.getMainGridViewDataSuccess(json);
+    }
 }

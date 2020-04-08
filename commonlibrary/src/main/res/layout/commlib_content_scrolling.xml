@@ -7,94 +7,31 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/commlib_coordinator_layout">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="xxxxxxxxxxxxxxxxxxxxxxxd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        dddddddddddddddddddddddddddddddddddddd
-        ddddddddddddddddddddddddddd" />
+        android:orientation="vertical"
+        >
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/main_lib_recyclerView_grid_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="5"
+            android:overScrollMode="never" />
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/main_lib_refreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/main_lib_recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/color_ffffff"
+                android:overScrollMode="never" />
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+    </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>

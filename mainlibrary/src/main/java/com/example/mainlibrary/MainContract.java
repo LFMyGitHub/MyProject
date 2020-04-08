@@ -6,9 +6,13 @@ import com.example.commonlibrary.base.BaseView;
 public interface MainContract {
     interface View extends BaseView<Presenter>{
         void getToolBarDataSuccess(String json);
+
+        void getMainGridViewDataSuccess(String json);
     }
 
     interface Presenter extends BasePresenter{
         void getToolBarData();
+
+        void getMainGridViewData();
     }
 }

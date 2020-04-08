@@ -47,5 +47,4 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <include layout="@layout/commlib_content_scrolling" />
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
