@@ -6,6 +6,8 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 
 public class GlideUtils {
     /**
@@ -28,6 +30,22 @@ public class GlideUtils {
     //默认加载
     public static void loadImageView(Context mContext, int path, ImageView mImageView) {
         Glide.with(mContext).load(path).into(mImageView);
+    }
+
+    //banner图片加载
+    public static void loadBannerImageView(String path, ImageView mImageView) {
+        Glide.with(mImageView)
+                .load(path)
+                .apply(RequestOptions.bitmapTransform(new RoundedCorners(20)))
+                .into(mImageView);
+    }
+
+    //banner图片加载
+    public static void loadBannerImageView(int path, ImageView mImageView) {
+        Glide.with(mImageView)
+                .load(path)
+                .apply(RequestOptions.bitmapTransform(new RoundedCorners(20)))
+                .into(mImageView);
     }
 
     //加载指定大小

@@ -64,6 +64,8 @@
     <dimen name="size_220dp">220dp</dimen>
     <dimen name="size_270dp">270dp</dimen>
     <dimen name="size_280dp">280dp</dimen>
+    <dimen name="size_400dp">400dp</dimen>
+    <dimen name="size_800dp">800dp</dimen>
 
     <dimen name="font_11sp">11sp</dimen>
     <dimen name="font_12sp">12sp</dimen>

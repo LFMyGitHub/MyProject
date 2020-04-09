@@ -8,11 +8,15 @@ public interface MainContract {
         void getToolBarDataSuccess(String json);
 
         void getMainGridViewDataSuccess(String json);
+
+        void getMainDataSuccess(String json);
     }
 
     interface Presenter extends BasePresenter{
         void getToolBarData();
 
         void getMainGridViewData();
+
+        void getMainData();
     }
 }

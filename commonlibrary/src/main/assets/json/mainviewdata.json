@@ -1,0 +1,28 @@
+{
+  "messages": [{
+    "title": "本周6上班",
+    "create_date": "1970/05/09 22:25",
+    "type": "2"
+  }],
+  "ads": [{
+    "name": "泰康人寿",
+    "cover": "https://res-csga.xcydhn.com/eba20d3c6cd6d3b82f6db24e41aa8f71.jpg",
+    "url": "https://v.xiumi.us/board/v5/4vEGF/173523645"
+  }, {
+    "name": "警方紧急通报",
+    "cover": "https://res-csga.xcydhn.com/24152afff7b7c584e3f144fce4b9560a.jpg",
+    "url": "https://mp.weixin.qq.com/s/XfCXdp9fNbs6AIAAeWFDWw"
+  }, {
+    "name": "供应商招募",
+    "cover": "https://res-csga.xcydhn.com/2bb615540c91a8ba2f0f9e862fa2deac.jpg",
+    "url": "https://g.eqxiu.com/s/RwvACeP5"
+  }, {
+    "name": "电信诈骗",
+    "cover": "https://res-csga.xcydhn.com/4e3f16e0e5ab8b0b4d54a50c4d1cad2a.jpg",
+    "url": "https://wdxz-csga.czysp.cn/jfdxwlzp/index.html"
+  }, {
+    "name": "招募",
+    "cover": "https://res-csga.xcydhn.com/3174fde729f6d5399d70ca35f36922f9.png",
+    "url": "colourlife://proto?type=inviteFriend"
+  }]
+}
