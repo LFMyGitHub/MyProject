@@ -158,14 +158,18 @@ public class MainFragment extends BaseFragment implements MainContract.View, App
                 mHomeToolbarGridViewAdapter = new HomeToolbarGridViewAdapter(getActivity(), R.layout.commlib_toolbar_grid_view_item, mHomeToolBarGridViewEntityArrayList);
                 mGridViewRecyclerView.setAdapter(mHomeToolbarGridViewAdapter);
             } else {
-                mHomeToolbarGridViewAdapter.setData(mHomeToolBarGridViewEntityArrayList);
+                mHomeToolbarGridViewAdapter.addData(mHomeToolBarGridViewEntityArrayList);
             }
-//            mHomeToolbarGridViewAdapter.setOnItemClickListener(new OnItemClickListener() {
-//                @Override
-//                public void onItemClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
-//                    ToastUtils.showShort(getActivity(), mHomeToolBarGridViewEntityArrayList.get(position).getTitle());
-//                }
-//            });
+            mHomeToolbarGridViewAdapter.setOnItemClickListener(new OnItemClickListener() {
+                @Override
+                public void onItemClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
+                    if(position >= 14){
+                        ToastUtils.showShort(getActivity(), "更多");
+                    }else {
+                        ToastUtils.showShort(getActivity(), mHomeToolBarGridViewEntityArrayList.get(position).getTitle());
+                    }
+                }
+            });
         }
     }
 }
