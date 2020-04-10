@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    xmlns:tools="http://schemas.android.com/tools">
+    <TextView
+        android:id="@+id/commlib_message_tv1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lines="1"
+        tools:text="实现1号店热点效果"
+        android:textColor="@color/color_444444"
+        android:layout_marginBottom="10dp"
+        android:textSize="14sp" />
+    <TextView
+        android:id="@+id/commlib_message_tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:lines="1"
+        android:layout_below="@id/commlib_message_tv1"
+        android:layout_marginRight="10dp"
+        android:textColor="@color/color_5CB85C"
+        android:background="@drawable/commlib_green"
+        android:textSize="@dimen/font_10sp"
+        tools:text="1号店"/>
+    <TextView
+        android:id="@+id/commlib_message_tv3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:lines="1"
+        android:textSize="@dimen/font_13sp"
+        android:layout_toRightOf="@id/commlib_message_tv2"
+        android:layout_below="@id/commlib_message_tv1"
+        tools:text="2020年1月23日"/>
+</RelativeLayout>

@@ -8,6 +8,7 @@ import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.commonlibrary.R;
 
 public class GlideUtils {
     /**
@@ -36,6 +37,8 @@ public class GlideUtils {
     public static void loadBannerImageView(String path, ImageView mImageView) {
         Glide.with(mImageView)
                 .load(path)
+                .error(R.mipmap.commlib_default_laod)
+                .placeholder(R.mipmap.commlib_default_laod)
                 .apply(RequestOptions.bitmapTransform(new RoundedCorners(20)))
                 .into(mImageView);
     }
@@ -44,6 +47,8 @@ public class GlideUtils {
     public static void loadBannerImageView(int path, ImageView mImageView) {
         Glide.with(mImageView)
                 .load(path)
+                .error(R.mipmap.commlib_default_laod)
+                .placeholder(R.mipmap.commlib_default_laod)
                 .apply(RequestOptions.bitmapTransform(new RoundedCorners(20)))
                 .into(mImageView);
     }

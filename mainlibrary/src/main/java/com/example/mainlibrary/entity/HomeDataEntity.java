@@ -33,6 +33,15 @@ public class HomeDataEntity {
         private String title;
         private String create_date;
         private String type;
+        private String typename;
+
+        public String getTypename() {
+            return typename;
+        }
+
+        public void setTypename(String typename) {
+            this.typename = typename;
+        }
 
         public String getTitle() {
             return title;
